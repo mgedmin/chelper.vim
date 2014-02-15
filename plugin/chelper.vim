@@ -1,7 +1,7 @@
 " File: chelper.vim
 " Author: Marius Gedminas <marius@gedmin.as>
-" Version: 0.1.1
-" Last Modified: 2013-03-05
+" Version: 0.1.2
+" Last Modified: 2014-02-15
 "
 " Overview
 " --------
@@ -133,6 +133,7 @@ function! CTagInStatusLine()
 endfunction
 
 autocmd CursorMoved * call CHCursorHold()
+autocmd CursorMovedI * call CHCursorHold()
 autocmd BufDelete * silent call CHBufferDelete()
 
 endif " if has("python") etc.
