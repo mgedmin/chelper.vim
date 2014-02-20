@@ -1,7 +1,7 @@
 " File: chelper.vim
 " Author: Marius Gedminas <marius@gedmin.as>
-" Version: 0.1.2
-" Last Modified: 2014-02-15
+" Version: 0.2.0
+" Last Modified: 2014-02-20
 "
 " Overview
 " --------
@@ -112,7 +112,7 @@ END
 " Vim bits
 
 function! CHCursorHold()
-    if !exists('b:current_syntax') || (b:current_syntax != 'c')
+    if !exists('b:current_syntax') || (b:current_syntax != 'c' && b:current_syntax != 'cpp')
         let w:CHStatusLine = ''
         return
     endif
