@@ -10,7 +10,7 @@ Inspired by Michal Vitecek's `pythonhelper.vim`__.
 
 __ http://www.vim.org/scripts/script.php?script_id=435
 
-Needs Vim 7.0 built with Python support.
+Needs Vim 7.x built with Python support.
 
 
 Installation
@@ -22,7 +22,10 @@ I recommend `Vundle <https://github.com/gmarik/vundle>`_, `pathogen
 
   :PluginInstall mgedmin/chelper.vim
 
-Manual installation: copy ``plugin/chelper.vim`` to ``~/.vim/plugin/``.
+Manual installation:
+
+- copy ``plugin/chelper.vim`` to ``~/.vim/plugin/``.
+- copy ``pythonx/chelper.py`` to ``~/.vim/pythonx/``.
 
 
 Configuration
