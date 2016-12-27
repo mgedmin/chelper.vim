@@ -25,8 +25,10 @@
 if !exists("g:chelper_python")
     if has("python3")
         let g:chelper_python = "python3"
-    else
+    elseif has("python")
         let g:chelper_python = "python"
+    else
+        finish
     endif
 endif
 
