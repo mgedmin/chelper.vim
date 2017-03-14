@@ -1,7 +1,7 @@
 " File: chelper.vim
 " Author: Marius Gedminas <marius@gedmin.as>
-" Version: 0.3.0
-" Last Modified: 2016-09-07
+" Version: 0.3.1
+" Last Modified: 2017-03-14
 "
 " Overview
 " --------
@@ -55,6 +55,9 @@ function! CTagInStatusLine()
     endif
 endfunction
 
-autocmd CursorMoved * call CHCursorHold()
-autocmd CursorMovedI * call CHCursorHold()
-autocmd BufDelete * silent call CHBufferDelete()
+augroup CHelper
+    autocmd!
+    autocmd CursorMoved * call CHCursorHold()
+    autocmd CursorMovedI * call CHCursorHold()
+    autocmd BufDelete * silent call CHBufferDelete()
+augroup END
