@@ -27,6 +27,7 @@ class Tags(object):
         self.tags = []
         curTag = None
         last_unindented_line = ''
+        last_unindented_line_number = 1
         for n, line in enumerate(buffer, 1):
             line = line.rstrip()
             # For now we assume a particular C style:
@@ -42,18 +43,21 @@ class Tags(object):
             #   {
             #      ...
             #   }
-            if line == '{':
+            if line[:1] == '{':
                 if '(' in last_unindented_line:
                     name = last_unindented_line.partition('(')[0].split()[-1]
                     if curTag and curTag.lastLine is None:
-                        curTag.lastLine = n - 1
+                        curTag.lastLine = last_unindented_line_number - 1
                     curTag = Tag(name, n)
                     self.tags.append(curTag)
-            if line == '}':
+            if line[:1] == '}':
                 if curTag and curTag.lastLine is None:
                     curTag.lastLine = n
             if line and (line[0].isalpha() or line[0] == '_'):
                 last_unindented_line = line
+                last_unindented_line_number = n
+        if curTag and curTag.lastLine is None:
+            curTag.lastLine = n
 
     def find(self, lineNumber):
         for t in self.tags:
