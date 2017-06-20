@@ -46,6 +46,7 @@ class Tags(object):
             if line[:1] == '{':
                 if '(' in last_unindented_line:
                     name = last_unindented_line.partition('(')[0].split()[-1]
+                    name = name.strip('*')
                     if curTag and curTag.lastLine is None:
                         curTag.lastLine = last_unindented_line_number - 1
                     curTag = Tag(name, n)
