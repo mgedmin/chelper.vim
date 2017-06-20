@@ -49,7 +49,7 @@ class Tags(object):
                     name = name.strip('*')
                     if curTag and curTag.lastLine is None:
                         curTag.lastLine = last_unindented_line_number - 1
-                    curTag = Tag(name, n)
+                    curTag = Tag(name, last_unindented_line_number)
                     self.tags.append(curTag)
             if line[:1] == '}':
                 if curTag and curTag.lastLine is None:
