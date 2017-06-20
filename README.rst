@@ -36,6 +36,14 @@ Add ``%{CTagInStatusLine()}`` to your 'statusline', e.g. ::
   set statusline=%<%f\ %h%m%r\ %1*%{CTagInStatusLine()}%*%=%-14.(%l,%c%V%)\ %P
 
 
+Debugging
+---------
+
+``:call ShowCTags()`` will print all the C functions detected in a source
+file.  If you find that some C code is parsed incorrectly (my parser is
+really simple!), please file a bug on GitHub.
+
+
 Copyright
 ---------
 

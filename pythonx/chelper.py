@@ -7,8 +7,11 @@ class Tag(object):
         self.firstLine = firstLine
         self.lastLine = lastLine
 
+    def __str__(self):
+        return '%s (lines %s-%s)' % (self.name, self.firstLine, self.lastLine)
+
     def __repr__(self):
-        return '<Tags: %s L%d-%d>' % (self.name, self.firstLine, self.lastLine)
+        return '<Tag: %s L%s-%s>' % (self.name, self.firstLine, self.lastLine)
 
 
 class Tags(object):
@@ -85,3 +88,10 @@ def findCTag(bufferNumber, changedTick):
 
 def deleteCTags(bufferNumber):
     C_TAGS_CACHE.pop(bufferNumber, None)
+
+
+def showCTags(bufferNumber, changedTick):
+    tags = getCTags(bufferNumber, changedTick)
+    print("%d tags found" % len(tags.tags))
+    for tag in tags.tags:
+        print(tag)

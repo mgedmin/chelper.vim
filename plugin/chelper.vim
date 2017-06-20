@@ -55,6 +55,11 @@ function! CTagInStatusLine()
     endif
 endfunction
 
+function! ShowCTags()
+    execute g:chelper_python 'chelper.showCTags(' . bufnr("") . ', ' . b:changedtick . ')'
+endfunction
+
+
 augroup CHelper
     autocmd!
     autocmd CursorMoved * call CHCursorHold()
