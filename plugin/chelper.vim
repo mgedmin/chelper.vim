@@ -35,7 +35,7 @@ endif
 execute g:chelper_python 'import chelper'
 
 function! CHCursorHold()
-    if !exists('b:current_syntax') || (b:current_syntax != 'c' && b:current_syntax != 'cpp' && b:current_syntax != 'c.doxygen' && b:current_syntax != 'cpp.doxygen')
+    if !exists('b:current_syntax') || b:current_syntax !~ '^\(c\|cpp\)\(\.\|$\)'
         let w:CHStatusLine = ''
         return
     endif
