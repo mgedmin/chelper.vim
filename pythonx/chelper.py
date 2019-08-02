@@ -1,3 +1,8 @@
+"""
+" HACK to make this file source'able by vim as well as importable by Python:
+pyx import sys; sys.modules.pop("chelper", None); import chelper
+finish
+"""
 import vim
 
 
@@ -43,6 +48,10 @@ class Tags(object):
             #   {
             #      ...
             #   }
+            # and now I'm trying to add support for
+            #   type function_name(...) {
+            #      ...
+            #   }
             if line[:1] == '{':
                 if '(' in last_unindented_line:
                     name = last_unindented_line.partition('(')[0].split()[-1]
@@ -51,12 +60,22 @@ class Tags(object):
                         curTag.lastLine = last_unindented_line_number - 1
                     curTag = Tag(name, last_unindented_line_number)
                     self.tags.append(curTag)
+                    last_unindented_line = ''
             if line[:1] == '}':
                 if curTag and curTag.lastLine is None:
                     curTag.lastLine = n
             if line and (line[0].isalpha() or line[0] == '_'):
                 last_unindented_line = line
                 last_unindented_line_number = n
+            if line.endswith(') {'):
+                if '(' in last_unindented_line:
+                    name = last_unindented_line.partition('(')[0].split()[-1]
+                    name = name.strip('*')
+                    if curTag and curTag.lastLine is None:
+                        curTag.lastLine = last_unindented_line_number - 1
+                    curTag = Tag(name, last_unindented_line_number)
+                    self.tags.append(curTag)
+                    last_unindented_line = ''
         if curTag and curTag.lastLine is None:
             curTag.lastLine = n
 

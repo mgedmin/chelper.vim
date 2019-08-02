@@ -1,7 +1,7 @@
 " File: chelper.vim
 " Author: Marius Gedminas <marius@gedmin.as>
-" Version: 0.3.1
-" Last Modified: 2017-03-14
+" Version: 0.4.0
+" Last Modified: 2019-08-02
 "
 " Overview
 " --------
@@ -18,7 +18,7 @@
 " Installation
 " ------------
 " Drop this file into ~/.vim/plugin/
-" Drop pythonhelper.py into ~/.vim/pythonx/
+" Drop ../pythonx/chelper.py into ~/.vim/pythonx/
 "
 " Add %{CTagInStatusLine()} to your 'statusline'
 
