@@ -13,14 +13,21 @@ __ http://www.vim.org/scripts/script.php?script_id=435
 Needs Vim 7.x built with Python support.
 
 
+Deprecation
+-----------
+
+This plugin was superseded by `taghelper.vim
+<https://github.com/mgedmin/taghelper.vim>`_, which supports more languages.
+
+
 Installation
 ------------
 
-I recommend `Vundle <https://github.com/gmarik/vundle>`_, `pathogen
-<https://github.com/tpope/vim-pathogen>`_ or `Vim Addon Manager
-<https://github.com/MarcWeber/vim-addon-manager>`_.  E.g. with Vundle do ::
+I recommend a plugin manager like vim-plug_::
 
-  :PluginInstall mgedmin/chelper.vim
+  Plug 'mgedmin/chelper.vim'
+
+.. _vim-plug: https://github.com/junegunn/vim-plug
 
 Manual installation:
 
